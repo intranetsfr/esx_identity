@@ -15,13 +15,13 @@ AddEventHandler('esx:onPlayerDeath', function(data)
 end)
 
 AddEventHandler('playerSpawned', function(spawn)
+	print(spawn)
 	isDead = false
 end)
 
 function EnableGui(state)
 	SetNuiFocus(state, state)
 	guiEnabled = state
-
 	SendNUIMessage({
 		type = "enableui",
 		enable = state
@@ -49,6 +49,7 @@ RegisterNUICallback('escape', function(data, cb)
 	if hasIdentity then
 		EnableGui(false)
 	else
+	print(data)
 		ESX.ShowNotification(_U('create_a_character'))
 	end
 end)
@@ -97,24 +98,24 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 
 		if guiEnabled then
-			DisableControlAction(0, 1,   true) -- LookLeftRight
-			DisableControlAction(0, 2,   true) -- LookUpDown
+			DisableControlAction(0, 1, true) -- LookLeftRight
+			DisableControlAction(0, 2, true) -- LookUpDown
 			DisableControlAction(0, 106, true) -- VehicleMouseControlOverride
 			DisableControlAction(0, 142, true) -- MeleeAttackAlternate
-			DisableControlAction(0, 30,  true) -- MoveLeftRight
-			DisableControlAction(0, 31,  true) -- MoveUpDown
-			DisableControlAction(0, 21,  true) -- disable sprint
-			DisableControlAction(0, 24,  true) -- disable attack
-			DisableControlAction(0, 25,  true) -- disable aim
-			DisableControlAction(0, 47,  true) -- disable weapon
-			DisableControlAction(0, 58,  true) -- disable weapon
+			DisableControlAction(0, 30, true) -- MoveLeftRight
+			DisableControlAction(0, 31, true) -- MoveUpDown
+			DisableControlAction(0, 21, true) -- disable sprint
+			DisableControlAction(0, 24, true) -- disable attack
+			DisableControlAction(0, 25, true) -- disable aim
+			DisableControlAction(0, 47, true) -- disable weapon
+			DisableControlAction(0, 58, true) -- disable weapon
 			DisableControlAction(0, 263, true) -- disable melee
 			DisableControlAction(0, 264, true) -- disable melee
 			DisableControlAction(0, 257, true) -- disable melee
 			DisableControlAction(0, 140, true) -- disable melee
 			DisableControlAction(0, 141, true) -- disable melee
 			DisableControlAction(0, 143, true) -- disable melee
-			DisableControlAction(0, 75,  true) -- disable exit vehicle
+			DisableControlAction(0, 75, true) -- disable exit vehicle
 			DisableControlAction(27, 75, true) -- disable exit vehicle
 		else
 			Citizen.Wait(500)
@@ -144,7 +145,7 @@ function verifyName(name)
 	-- Allowed:     'Bob Joe'
 	-- Not allowed: 'Bob'
 	-- Not allowed: 'Bob joe'
-	local spacesInName    = 0
+	local spacesInName = 0
 	local spacesWithUpper = 0
 	for word in string.gmatch(name, '%S+') do
 
@@ -156,11 +157,11 @@ function verifyName(name)
 	end
 
 	if spacesInName > 2 then
-		return 'Your name contains more than two spaces'
+		return U("too_much_spaces")
 	end
 
 	if spacesWithUpper ~= spacesInName then
-		return 'your name must start with a capital letter.'
+		return U('capital_letter')
 	end
 
 	return ''

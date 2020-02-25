@@ -7,8 +7,10 @@ Locales['fr'] = {
 	['active_character'] = '~b~Personnage activé:~s~ %s %s',
 	['already_registered'] = 'Vous avez déjà un personnage',
 	['failed_identity'] = 'Impossible de modifier votre personnage ; demandez à un admin',
-	['create_a_character'] = 'Vous venez de créer votre personnage.',
+	['create_a_character'] = 'Veuillez completer votre personnage.',
 	['invalide_height'] = 'La taille de votre personnage est incorrecte.',
+	['capital_letter'] = 'Votre première lettre de votre nom doit être en capitale.',
 	['invalide_name'] = 'Le nom de votre personnage est invalide.',
+	['too_much_spaces'] = 'Trop d\'espace dans votre nom.',
 	['invalide_date'] = 'Date de naissance invalide.'
 }

@@ -1,7 +1,8 @@
 body {
 	font-family: sans-serif;
 	overflow: hidden;
-	display: none;
+	background-color: rgba(0, 0, 0, .75);
+
 }
 
 .dialog {
