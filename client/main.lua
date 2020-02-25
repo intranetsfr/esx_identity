@@ -49,7 +49,6 @@ RegisterNUICallback('escape', function(data, cb)
 	if hasIdentity then
 		EnableGui(false)
 	else
-	print(data)
 		ESX.ShowNotification(_U('create_a_character'))
 	end
 end)
